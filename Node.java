@@ -10,5 +10,23 @@ public class Node {
 
     }
     
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public String toString(){
+        return (String.valueOf(x) + " " + String.valueOf(y)); 
+    }
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return x == node.x && y == node.y;
+    }
 }
 
