@@ -12,6 +12,9 @@ public class search{
         File file = new File("program_1_example_input.txt"); //args[0];change later
         try(Scanner in = new Scanner(file)){
             String type = in.nextLine();
+            int row = 0;
+            if(type.equals("row"))
+                row = 1;
             searchMap RTs = new searchMap(); //stores all the search terms
             Node start = new Node(50, 50);
             RTs.mark(start);
@@ -32,7 +35,7 @@ public class search{
                         }
                         RTs.mark(newNode);
                         clock.tick(); clock.tick(); //tick twice for searching
-                        System.out.println(newNode + ": " + String.valueOf(clock.totalTime));
+                        //System.out.println(newNode + ": " + String.valueOf(clock.totalTime));
                     } 
 
                     ArrayList<Node> neighbors = RTs.getUnsearched(newNode);
@@ -45,7 +48,7 @@ public class search{
                         clock.tick(); //tick for moving
                         RTs.mark(curr);
                         clock.tick();clock.tick(); //ticks for searching
-                        System.out.println(curr + ": " + String.valueOf(clock.totalTime));
+                        //System.out.println(curr + ": " + String.valueOf(clock.totalTime));
                         if(i==neighbors.size()-1){
                             break;//no need to go back
                         }
@@ -59,6 +62,8 @@ public class search{
                 
                 } 
             }
+            RTs.print(row);
+            System.out.println(clock.totalTime);
         } catch (FileNotFoundException e){
             System.out.println("File not found");
             System.exit(0);

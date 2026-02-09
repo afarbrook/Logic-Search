@@ -59,12 +59,16 @@ public class searchMap {
     }
 
     public void print(int row){
-
+        Node end = new Node(50, 50);
+        searched.remove(end);
         List<Node> items = new ArrayList<>(searched);
         if(row ==1){
-            
+            items.sort(Comparator.comparingInt((Node node) -> node.x).thenComparingInt((Node node) -> node.y));
         }else{
-
+            items.sort(Comparator.comparingInt((Node node) -> node.y).thenComparingInt((Node node) -> node.x));
+        }
+        for(Node node:items){
+            System.out.println(node);
         }
     }
     
