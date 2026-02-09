@@ -28,5 +28,10 @@ public class Node {
         Node node = (Node) o;
         return x == node.x && y == node.y;
     }
+
+    @Override
+    public int hashCode() {
+        return 100*x+y;
+    }
 }
 

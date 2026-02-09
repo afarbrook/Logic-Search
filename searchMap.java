@@ -25,25 +25,25 @@ public class searchMap {
         int y = pos.getY();
         ArrayList<Node> neighbors = new ArrayList<>();
         if(isValid(x, y-1)){    
-            Node North = new Node(x, y-1);
+            Node North = new Node(x-1, y);
             if(!isSearched(North)){
                 neighbors.add(North);
             }
         }
         if(isValid(x+1, y)){    
-            Node East = new Node(x+1, y);
+            Node East = new Node(x, y+1);
             if(!isSearched(East)){
                 neighbors.add(East);
             }
         }
         if(isValid(x, y+1)){    
-            Node South = new Node(x, y+1);
+            Node South = new Node(x+1, y);
             if(!isSearched(South)){
                 neighbors.add(South);
             }
         }
         if(isValid(x-1, y)){    
-            Node West = new Node(x-1, y);
+            Node West = new Node(x, y-1);
             if(!isSearched(West)){
                 neighbors.add(West);
             }
@@ -56,6 +56,16 @@ public class searchMap {
             sb.append(n.toString()).append("\n");
         }
         return sb.toString();
+    }
+
+    public void print(int row){
+
+        List<Node> items = new ArrayList<>(searched);
+        if(row ==1){
+            
+        }else{
+
+        }
     }
     
 
